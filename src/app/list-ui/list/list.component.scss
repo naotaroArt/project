@@ -10,32 +10,32 @@
 
 .node-area{
     height: 100px;
-    background-color: #383838; /* Серый фон */
-    border: 1px solid #ccc; /* Светло-серая граница */
-    padding: 10px; /* Внутренние отступы */
-    font-size: 16px; /* Размер текста */
-    border-radius: 5px; /* Закругленные углы */
+    background-color: #383838; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    font-size: 16px; 
+    border-radius: 5px; 
     color: solid var(--white-color);   
     resize: vertical;
 }
 
 
 .card-btn {
-    width: 50px; /* Фиксированная ширина */
-    height: 50px; /* Фиксированная высота */
+    width: 50px; 
+    height: 50px; 
     background-color: transparent;
-    border: none; /* Убирает стандартную границу */
-    cursor: pointer; /* Курсор указателя */
+    border: none; 
+    cursor: pointer; 
     border-radius: 5px;
-    transition: all 0.2s ease; /* Плавные переходы */
+    transition: all 0.2s ease; 
     padding: 0;
   }
   
   .card-btn:hover {
-    opacity: 0.8; /* Легкая прозрачность при наведении */
+    opacity: 0.8; 
   }
   
   .card-btn:active {
-    transform: scale(0.95); /* Уменьшение кнопки при клике */
+    transform: scale(0.95); 
   }
   
