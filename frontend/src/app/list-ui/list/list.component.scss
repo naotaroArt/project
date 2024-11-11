@@ -1,41 +1,41 @@
 .info-card{
-    border: 2px solid var(--white-color);
-    border-radius: 10px;
-    margin: 20px;
-    padding: 32px 24px;
-    display: grid;
-    grid-template-columns: auto 50px 50px 50px;
-    column-gap: 15px;
+  border: 2px solid var(--white-color);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: auto 50px 50px 50px;
+  column-gap: 15px;
 }
 
 .node-area{
-    height: 100px;
-    background-color: #383838; 
-    border: 1px solid #ccc; 
-    padding: 10px; 
-    font-size: 16px; 
-    border-radius: 5px; 
-    color: solid var(--white-color);   
-    resize: vertical;
+  height: 100px;
+  background-color: #383838; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  font-size: 16px; 
+  border-radius: 5px; 
+  color: solid var(--white-color);   
+  resize: vertical;
 }
 
 
 .card-btn {
-    width: 50px; 
-    height: 50px; 
-    background-color: transparent;
-    border: none; 
-    cursor: pointer; 
-    border-radius: 5px;
-    transition: all 0.2s ease; 
-    padding: 0;
-  }
+  width: 50px; 
+  height: 50px; 
+  background-color: transparent;
+  border: none; 
+  cursor: pointer; 
+  border-radius: 5px;
+  transition: all 0.2s ease; 
+  padding: 0;
+}
   
-  .card-btn:hover {
-    opacity: 0.8; 
-  }
+.card-btn:hover {
+  opacity: 0.8; 
+}
   
-  .card-btn:active {
-    transform: scale(0.95); 
-  }
+.card-btn:active {
+  transform: scale(0.95); 
+}
   
