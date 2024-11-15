@@ -2,7 +2,15 @@
 <div class="serch-create-area">
   <h2>Создать новую запись</h2>
   <button class="create-btn" (click)="addCard()">
-    <img src="/assets/create-icon.png" width="50px">  
+    <img src="/assets/create-icon.png" width="50px">
   </button>
 </div>
-<app-list-card-of-entries [cards]="cards" (addCardEvent)="addCard()"></app-list-card-of-entries>
+
+<div *ngFor="let card of cards; let i = index">
+  <app-list-card-of-entries
+    [card]="card"
+    (saveEvent)="saveCard($event, i)"
+    (deleteEvent)="deleteCard(i)"
+    (editEvent)="editCard(i)"
+  ></app-list-card-of-entries>
+</div>

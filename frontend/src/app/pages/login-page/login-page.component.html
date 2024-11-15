@@ -1,11 +1,21 @@
-<form action="" class="login-form">
+<form 
+  class="login-form" 
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  >
   <h1>Вход</h1>
-  <label>
+  <label class="control-label">
     Логин
-    <input type="text" pInputText formControlName="text" class="login"/>
+    <br>
+    <input 
+      type="text" pInputText formControlName="username" class="login"/>
   </label>
-  <label>
+  <label class="control-label">
     Пароль
-    <input type="text" pInputText formControlName="text" class="password"/>
+    <br>
+    <input 
+      type="text" pInputText formControlName="password" class="password"/>
   </label>
+  <p-button label="Войти" severity="help" type="onSubmit"/>
 </form>
+<img src="assets/you-not-go.jpg" class="logo-icon">

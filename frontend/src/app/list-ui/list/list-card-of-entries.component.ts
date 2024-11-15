@@ -1,27 +1,49 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list-card-of-entries',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './list-card-of-entries.component.html',
-  styleUrl: './list-card-of-entries.component.scss'
+  styleUrls: ['./list-card-of-entries.component.scss']
 })
-export class ListCardOfEntriesComponent {
-  @Input() cards: { isReadonly: boolean, isDeleted: boolean }[] = [];
-  @Output() addCardEvent = new EventEmitter<void>();
+export class ListCardOfEntriesComponent implements OnChanges {
+  @Input() card!: { isReadonly: boolean; text: string }; // Данные одной карточки
+  @Output() saveEvent = new EventEmitter<string>();
+  @Output() deleteEvent = new EventEmitter<void>();
+  @Output() editEvent = new EventEmitter<void>();
 
-  offReadonly(index: number) {
-    this.cards[index].isReadonly = false;
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      text: [''],
+    });
   }
 
-  onReadonly(index: number) {
-    this.cards[index].isReadonly = true;
+  ngOnChanges() {
+    if (this.card) {
+      this.form.patchValue({ text: this.card.text });
+      console.log('Card updated in form:', this.card);
+    }
   }
 
-  deleteCard(index: number) {
-    this.cards.splice(index, 1);
+  save() {
+    console.log('Saving card:', this.card, 'with form value:', this.form.value);
+    this.saveEvent.emit(this.form.value.text);
+    this.card.isReadonly = true;
+  }
+
+  edit() {
+    console.log('Editing card:', this.card);
+    this.card.isReadonly = false;
+    this.editEvent.emit();
+  }
+
+  delete() {
+    console.log('Deleting card:', this.card);
+    this.deleteEvent.emit();
   }
 }

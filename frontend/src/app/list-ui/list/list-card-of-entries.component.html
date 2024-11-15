@@ -1,14 +1,12 @@
-<div *ngFor="let card of cards; let i = index" class="info-card">
-  <textarea [readonly]="card.isReadonly" class = "node-area">
-
-  </textarea>
-  <button class = "card-btn" (click)="onReadonly(i)">   
-    <img src="/assets/save-icon.png" width="50px">    
+<form [formGroup]="form" (ngSubmit)="save()" class="info-card">
+  <textarea formControlName="text" [readonly]="card.isReadonly" class="text-area"></textarea>
+  <button class="card-btn" type="submit">
+    <img src="/assets/save-icon.png" width="50px">
   </button>
-  <button class = "card-btn" (click)="offReadonly(i)">
-    <img src="/assets/edit-icon.png" width="50px">   
+  <button class="card-btn" type="button" (click)="edit()">
+    <img src="/assets/edit-icon.png" width="50px">
   </button>
-  <button class = "card-btn" (click)="deleteCard(i)">
-    <img src="/assets/delete-icon.png" width="50px">   
+  <button class="card-btn" type="button" (click)="delete()">
+    <img src="/assets/delete-icon.png" width="50px">
   </button>
-</div>
+</form>

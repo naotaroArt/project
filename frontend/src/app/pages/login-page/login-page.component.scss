@@ -1,6 +1,23 @@
 :host {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 25px;
   align-items: center;
-  margin: 0 5%;
+  margin: 10% 15% 5% 15%;
+  background-image: linear-gradient(rgba(184, 37, 214, 0.233), rgba(39, 206, 218, 0.123));
 }
+
+.login-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.logo-icon {
+  margin: 5% 5%;
+  height: 400px;
+}
+
+
+
