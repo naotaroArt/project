@@ -1,7 +1,9 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, inject, NgModule } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../auth/auth.service';
+import { User } from './user.model';
 
 
 @Component({
@@ -12,12 +14,18 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './login-page.component.scss'
 })
 export class LoginPageComponent {
-  form: FormGroup<{username: FormControl, password: FormControl}> = new FormGroup({
-    username: new FormControl(null),
-    password: new FormControl(null)
+  authService = inject(AuthService)
+  
+  form: FormGroup<{email: FormControl, password: FormControl}> = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
   })
 
-  onSubmit() {
-    console.log(this.form.value)
+  onSubmit() { 
+    if(this.form.valid) {  
+      const userData: User = this.form.value as User;
+      this.authService.login(userData);
+      console.log(this.form.value);
+    }
   }
 }
