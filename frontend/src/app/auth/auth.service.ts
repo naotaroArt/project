@@ -11,7 +11,7 @@ export class AuthService {
 
   login(payload: {email: string, password: string}) {
     return this.http.post(
-      `$(this.baseApiUrl)login`,
+      `http://localhost:5000/auth/login`,
       payload
     )
   }

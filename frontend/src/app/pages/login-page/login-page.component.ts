@@ -17,14 +17,17 @@ export class LoginPageComponent {
   authService = inject(AuthService)
   
   form: FormGroup<{email: FormControl, password: FormControl}> = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   })
 
   onSubmit() { 
     if(this.form.valid) {  
       const userData: User = this.form.value as User;
-      this.authService.login(userData);
+      this.authService.login(userData).subscribe({
+        next: (response) => console.log('Успех:', response),
+        error: (err) => console.error('Ошибка при отправке:', err),
+     });
       console.log(this.form.value);
     }
   }

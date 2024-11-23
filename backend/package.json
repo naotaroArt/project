@@ -28,6 +28,7 @@
     "@nestjs/sequelize": "^10.0.1",
     "@nestjs/swagger": "^8.0.5",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "pg": "^8.13.1",
     "pg-hstore": "^2.3.4",
